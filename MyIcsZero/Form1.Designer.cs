@@ -34,7 +34,7 @@ namespace MyIcsZero
             // 
             // newGameButton
             // 
-            this.newGameButton.Location = new System.Drawing.Point(316, 340);
+            this.newGameButton.Location = new System.Drawing.Point(288, 364);
             this.newGameButton.Name = "newGameButton";
             this.newGameButton.Size = new System.Drawing.Size(89, 23);
             this.newGameButton.TabIndex = 0;
