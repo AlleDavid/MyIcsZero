@@ -26,21 +26,7 @@ namespace MyIcsZero
 
         private void newGameButton_Click(object sender, EventArgs e)
         {
-            StartGame();
-        }
-
-        private void StartGame()
-        {
-            if (FirstGame())
-                CreateBoard();
-            else
-                ResetBoard();
-            currentPlayer = Constants.firstPlayer;
-        }
-
-        private bool FirstGame()
-        {
-            return board[0, 0] == null;
+            
         }
 
         private void CreateBoard()
@@ -69,18 +55,16 @@ namespace MyIcsZero
                 }
             }
 
-            private void ResetBoard()
-            {
-                for (int i = 0; i < Constants.boardSize; i++)
-                {
-                    for (int j = 0; j < Constants.boardSize; j++)
-                    {
+            
+        }
+        private void OnMouseLeave(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Constants.boardColor;
+        }
 
-                        board[i, j].Text = "";
-
-                    }
-                }
-            }
+        private void OnMouseEnter(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Constants.hoverColor;
         }
     }
 }
