@@ -107,6 +107,39 @@ namespace MyIcsZero
                     ((Label)sender).Text = Constants.secondPlayerText;
                     currentPlayer = Constants.firstPlayer;
                 }
+            int winner = Winner();
+            if (winner != 0)
+            {
+                ShowWinner(winner);
+                ResetBoard();
+            }
+        }
+
+        private int Winner()
+        {
+            for (int i = 0; i < Constants.boardSize; i++)
+            {
+                if (board[i, 0].Text == board[i, 1].Text && board[i, 1].Text == board[i, 2].Text 
+                    && board[i, 0].Text != "")
+                    return board[i, 0].Text == Constants.firstPlayerText ? 1 : 2;
+                if (board[0, i].Text == board[1, i].Text && board[1, i].Text == board[2, i].Text 
+                    && board[0, i].Text != "")
+                    return board[0, i].Text == Constants.firstPlayerText ? 1 : 2;
+            }
+            if (board[0, 0].Text == board[1, 1].Text &&
+                    board[1, 1].Text == board[2, 2].Text && board[0, 0].Text != "")
+                return board[0, 0].Text == Constants.firstPlayerText ? 1 : 2;
+
+            if (board[2, 0].Text == board[1, 1].Text &&
+                    board[1, 1].Text == board[0, 2].Text && board[2, 0].Text != "")
+                return board[2, 0].Text == Constants.firstPlayerText ? 1 : 2;
+            return 0;
+        }
+
+        private void ShowWinner(int winner)
+        {
+            if (winner == Constants.firstPlayer) MessageBox.Show(Constants.firstPlayerName + " Won");
+            if (winner == Constants.secondPlayer) MessageBox.Show(Constants.secondPlayerName + " Won");
         }
     }
 }
