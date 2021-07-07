@@ -54,7 +54,7 @@ namespace MyIcsZero
                     this.board[i, j].Size = new System.Drawing.Size(Constants.cellSize, Constants.cellSize);
                     this.board[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
-                    // this.board[i, j].Click += Play;
+                    this.board[i, j].Click += Play;
                     this.board[i, j].MouseEnter += OnMouseEnter;
                     this.board[i, j].MouseLeave += OnMouseLeave;
 
@@ -66,6 +66,7 @@ namespace MyIcsZero
 
 
         }
+
         private void OnMouseLeave(object sender, EventArgs e)
         {
             ((Label)sender).BackColor = Constants.boardColor;
@@ -93,5 +94,19 @@ namespace MyIcsZero
             return board[0, 0] == null;
         }
 
+        private void Play(object sender, EventArgs e)
+        {
+            if (((Label)sender).Text == "")
+                if (currentPlayer == Constants.firstPlayer)
+                {
+                    ((Label)sender).Text = Constants.firstPlayerText;
+                    currentPlayer = Constants.secondPlayer;
+                }
+                else
+                {
+                    ((Label)sender).Text = Constants.secondPlayerText;
+                    currentPlayer = Constants.firstPlayer;
+                }
+        }
     }
 }

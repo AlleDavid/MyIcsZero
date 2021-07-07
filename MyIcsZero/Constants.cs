@@ -16,6 +16,7 @@ namespace MyIcsZero
         public static string firstPlayerText = "X";
         public static int secondPlayer = 2;
         public static string secondPlayerName = "Luke";
+        public static string secondPlayerText = "0";
 
         public static Color boardColor = Color.Aquamarine;
         public static Color hoverColor = Color.Yellow;
